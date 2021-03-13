@@ -88,5 +88,10 @@ public class DonarController {
 	public String test() {
 	return "working";
 	}
+	public byte[] convertBase64StringToByteArray(String data) throws UnsupportedEncodingException {
+		data = data.replaceFirst("^data:image/[^;]*;base64,?","");
+		byte[] name = Base64.getMimeDecoder().decode(data);
+		return name;
+	}
 	
 }
