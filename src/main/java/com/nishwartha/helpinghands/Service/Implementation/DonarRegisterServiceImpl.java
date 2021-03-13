@@ -43,7 +43,7 @@ public class DonarRegisterServiceImpl implements DonarRegisterService {
 
 	@Override
 	public JsonResponse<Object> getBloodDonarsList(String bloodGroup) throws Exception {
-		List<DonarRegister> entityList = registerDao.findListByBloodGroup(bloodGroup);
+		List<DonarRegister> entityList = registerDao.findAllByBloodGroup(bloodGroup);
 		registerDao.print(bloodGroup);
 		List<DonarRegisterDTO> result = convertToDonarRegister(entityList);
 		Long count = (long) result.size();
@@ -86,7 +86,7 @@ public class DonarRegisterServiceImpl implements DonarRegisterService {
 
 	@Override
 	public List<DonarRegisterDTO> getDonarListForPDF(String bloodGroup) throws Exception {
-		List<DonarRegister> entityList = registerDao.findListByBloodGroup(bloodGroup);
+		List<DonarRegister> entityList = registerDao.findAllByBloodGroup(bloodGroup);
 		registerDao.print(bloodGroup);
 		List<DonarRegisterDTO> result = convertToDonarRegister(entityList);
 		return result;
