@@ -13,8 +13,7 @@ import com.nishwartha.helpinghands.modal.Activities;
 @Repository
 public interface DonarRegisterDAO extends JpaRepository<DonarRegister, Long> {
 
-	@Query(value="select b from ddovkeobmjhaur.donarslist where bloodgroup =:blood",nativeQuery = true)
-	List<DonarRegister> findListByBloodGroup(@Param("blood") String bloodgroup);
+	List<DonarRegister> findAllByBloodgroup(String bloodgroup);
 	default void print( String blood) {
 		System.out.println(blood);
 	}
