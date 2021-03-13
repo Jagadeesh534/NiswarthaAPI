@@ -84,11 +84,9 @@ public class DonarController {
                 .contentType(MediaType.APPLICATION_PDF)
                 .body(new InputStreamResource(bis));
 	}
-	
-	public byte[] convertBase64StringToByteArray(String data) throws UnsupportedEncodingException {
-		data = data.replaceFirst("^data:image/[^;]*;base64,?","");
-		byte[] name = Base64.getMimeDecoder().decode(data);
-		return name;
+	@RequestMapping(value="/test", method = RequestMethod.GET)
+	public String test() {
+	return "working";
 	}
 	
 }
